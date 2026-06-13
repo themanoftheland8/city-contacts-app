@@ -87,7 +87,7 @@ function LoginScreen() {
     setError("");
     try { 
       await signInWithPopup(auth, googleProvider); 
-    } catch (err) { 
+    } catch { 
       setError("Sign-in failed. Please try again."); 
       setSigningIn(false); 
     }
@@ -475,8 +475,6 @@ function AddView({ form, cities, onChange, onToggleCategory, onSave, onCancel, i
 
   // Track active rule indicators
   const showMassageRule = !!(form.phone || "").trim();
-  const showContentRule = !!(form.x || "").trim() || !!(form.bsky || "").trim();
-  const showWrestlingRule = !!(form.meetfighters || "").trim() || !!(form.instagram || "").trim();
 
   return (
     <div className="glass-card" style={{ maxWidth: "600px", margin: "0 auto" }}>
@@ -611,7 +609,7 @@ function AddView({ form, cities, onChange, onToggleCategory, onSave, onCancel, i
         <button className="btn btn-secondary" onClick={onCancel}>Cancel</button>
         <button 
           className="btn btn-primary" 
-          onClick={valid ? handleSave : undefined} 
+          onClick={valid ? onSave : undefined} 
           disabled={!valid}
           style={{ opacity: valid ? 1 : 0.5, cursor: valid ? "pointer" : "not-allowed" }}
         >
