@@ -20,3 +20,8 @@ dist-ssr
 .firebase/
 city-contacts-app-firebase-adminsdk-fbsvc-*.json
 *.json.key
+
+# Environment variables - NEVER commit these
+.env
+.env.*
+!.env.example

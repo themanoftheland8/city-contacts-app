@@ -3,13 +3,13 @@ import { getFirestore } from "firebase/firestore";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBzlMdu5SOkx-m4iD4NlAq_tjvGKpMpg4A",
-  authDomain: "city-contacts-app.firebaseapp.com",
-  databaseURL: "https://city-contacts-app-default-rtdb.firebaseio.com",
-  projectId: "city-contacts-app",
-  storageBucket: "city-contacts-app.firebasestorage.app",
-  messagingSenderId: "543341321882",
-  appId: "1:543341321882:web:37698af956fa0962f08923"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  databaseURL: import.meta.env.VITE_FIREBASE_DATABASE_URL,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
 const app = initializeApp(firebaseConfig);
