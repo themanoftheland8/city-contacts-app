@@ -11,7 +11,9 @@ jobs:
       - uses: actions/checkout@v4
       
       - name: Install Dependencies & Build
-        run: npm ci && npm run build
+        run: |
+          npm install
+          npm run build
         
       - name: Deploy to Firebase Hosting
         uses: FirebaseExtended/action-hosting-deploy@v0
