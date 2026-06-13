@@ -1,0 +1,22 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Node modules & build outputs
+node_modules
+dist
+dist-ssr
+*.local
+
+# OS files
+.DS_Store
+
+# Editor files
+.vscode
+.idea
+
+# Firebase configs & keys
+.firebase/
+city-contacts-app-firebase-adminsdk-fbsvc-*.json
+*.json.key
