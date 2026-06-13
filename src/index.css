@@ -422,22 +422,22 @@ body {
 
 /* Contact Rows */
 .contacts-list {
-  padding: 8px 16px 16px;
+  padding: 6px 12px 12px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 6px;
   border-top: 1px solid rgba(255, 255, 255, 0.03);
 }
 
 .contact-item {
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid var(--border-light);
-  border-radius: 16px;
-  padding: 16px;
+  border-radius: 12px;
+  padding: 6px 12px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  gap: 12px;
   transition: all 0.2s ease;
   flex-wrap: wrap;
 }
@@ -450,27 +450,27 @@ body {
 .contact-info {
   display: flex;
   align-items: center;
-  gap: 16px;
-  min-width: 200px;
+  gap: 10px;
+  min-width: 180px;
 }
 
 .contact-avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 12px;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
   background: linear-gradient(135deg, var(--primary) 0%, var(--color-massage) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 13px;
   color: #fff;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
 .contact-name {
   font-family: var(--font-heading);
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   color: var(--text-primary);
 }
@@ -478,7 +478,7 @@ body {
 .contact-links {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   flex-wrap: wrap;
   flex: 1;
 }
@@ -486,10 +486,10 @@ body {
 .contact-link-badge {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 6px 12px;
-  border-radius: 10px;
-  font-size: 13px;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 12px;
   font-weight: 500;
   text-decoration: none;
   transition: all 0.2s;
@@ -540,22 +540,22 @@ body {
 .contact-actions {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
 }
 
 .action-btn {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--border-light);
   color: var(--text-secondary);
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: all 0.2s;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .action-btn:hover {
