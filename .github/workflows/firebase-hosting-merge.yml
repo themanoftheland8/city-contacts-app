@@ -15,9 +15,6 @@ jobs:
           npm install --no-audit --no-fund --loglevel=error
           npm run build
         
-      - name: Install Firebase Tools Globally
-        run: npm install -g firebase-tools --no-audit --no-fund --loglevel=error
-        
       - name: Deploy to Firebase Hosting
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
@@ -25,3 +22,7 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_CITY_CONTACTS_APP }}'
           projectId: city-contacts-app
           channelId: live
+        env:
+          NPM_CONFIG_AUDIT: "false"
+          NPM_CONFIG_FUND: "false"
+          NPM_CONFIG_LOGLEVEL: "error"
