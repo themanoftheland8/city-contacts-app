@@ -8,11 +8,15 @@ import { db, auth, googleProvider } from "./firebase";
 const CATEGORIES = ["Massage", "Wrestling", "Content"];
 
 const SOCIAL_PLATFORMS = [
-  { key: "meetfighters", label: "Meetfighters", placeholder: "username", url: (u) => `https://www.meetfighters.com/users/${u}`, icon: "🥊" },
-  { key: "x", label: "X (Twitter)", placeholder: "username", url: (u) => `https://x.com/${u}`, icon: "✕" },
-  { key: "bsky", label: "Bluesky", placeholder: "handle", url: (u) => `https://bsky.app/profile/${u.includes(".") ? u : u + ".bsky.social"}`, icon: "🦋" },
-  { key: "instagram", label: "Instagram", placeholder: "username", url: (u) => `https://instagram.com/${u}`, icon: "📷" },
-  { key: "rentmasseur", label: "RentMasseur", placeholder: "username", url: (u) => `https://rentmasseur.com/${u}`, icon: "💆" },
+  { key: "meetfighters", label: "Meetfighters", placeholder: "username", url: (u) => u ? `https://www.meetfighters.com/users/${encodeURIComponent(u.trim())}` : "", icon: "🥊" },
+  { key: "x", label: "X (Twitter)", placeholder: "username", url: (u) => u ? `https://x.com/${encodeURIComponent(u.trim())}` : "", icon: "✕" },
+  { key: "bsky", label: "Bluesky", placeholder: "handle", url: (u) => {
+      if (!u) return "";
+      const val = String(u).trim();
+      return `https://bsky.app/profile/${encodeURIComponent(val.includes(".") ? val : val + ".bsky.social")}`;
+    }, icon: "🦋" },
+  { key: "instagram", label: "Instagram", placeholder: "username", url: (u) => u ? `https://instagram.com/${encodeURIComponent(u.trim())}` : "", icon: "📷" },
+  { key: "rentmasseur", label: "RentMasseur", placeholder: "username", url: (u) => u ? `https://rentmasseur.com/${encodeURIComponent(u.trim())}` : "", icon: "💆" },
 ];
 
 const emptyForm = {
@@ -22,6 +26,7 @@ const emptyForm = {
 };
 
 function formatPhone(raw) {
+  if (!raw) return "";
   const digits = raw.replace(/[^0-9]/g, "");
   const local = (digits.length === 11 && digits.startsWith("1")) ? digits.slice(1) : digits;
   const d = local.slice(0, 10);
@@ -470,7 +475,7 @@ function ContactRow({ contact, onEdit, onDelete }) {
   );
 }
 
-function AddView({ form, cities, onChange, onToggleCategory, onSave, onCancel, isEditing, effectiveCity }) {
+function AddView({ form = {}, cities = [], onChange, onToggleCategory, onSave, onCancel, isEditing, effectiveCity }) {
   const valid = !!effectiveCity;
 
   // Track active rule indicators
